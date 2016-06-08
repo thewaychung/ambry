@@ -277,6 +277,12 @@ project(':ambry-frontend') {
     }
 }
 
+project(':ambry-client') {
+    dependencies {
+        compile "com.codahale.metrics:metrics-core:$metricsVersion"
+    }
+}
+
 subprojects.each { subproject -> evaluationDependsOn(subproject.path)}
 
 task allJar(type: Jar, dependsOn: subprojects.assemble) {
